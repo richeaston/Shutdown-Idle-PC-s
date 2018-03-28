@@ -2,7 +2,7 @@
 #Written by Richard Easton 
 
 #set Active Directory Base search area.
-$ousearchbase = "OU=Whickham_Workstations,DC=whickhamschool,DC=org"
+$ousearchbase = "OU=[yourPC'sOU],DC=[domain],DC=org"
 
 #Set domain admin credentials (get-credentials prompts of password input)
 #$username / $Password sends them to the PS script, use this for scheduled tasks
@@ -10,9 +10,9 @@ $ousearchbase = "OU=Whickham_Workstations,DC=whickhamschool,DC=org"
 #base paths
 $basepath = "c:\shutdown"
 $logpath = "$basepath\logs"
-#$c = Get-Credential "domain\administrator"
-$username = "whickhamschool\sccm"
-$password = convertto-securestring "F3n3rbahce" -AsPlainText -Force
+#$c = Get-Credential "domain\[dadmin account]"
+$username = "whickhamschool\[dadmin account]"
+$password = convertto-securestring "[password]" -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
 
 #location of files.
