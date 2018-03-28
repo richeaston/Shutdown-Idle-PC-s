@@ -10,7 +10,6 @@ $ousearchbase = "OU=[yourPC'sOU],DC=[domain],DC=org"
 #base paths
 $basepath = "c:\shutdown"
 $logpath = "$basepath\logs"
-#$c = Get-Credential "domain\[dadmin account]"
 $username = "whickhamschool\[dadmin account]"
 $password = convertto-securestring "[password]" -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
