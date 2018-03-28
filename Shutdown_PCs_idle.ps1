@@ -2,6 +2,7 @@
 #Written by Richard Easton 
 
 #set Active Directory Base search area.
+#replace anyhting in [] with your information.
 $ousearchbase = "OU=[yourPC'sOU],DC=[domain],DC=org"
 
 #Set domain admin credentials (get-credentials prompts of password input)
@@ -10,7 +11,9 @@ $ousearchbase = "OU=[yourPC'sOU],DC=[domain],DC=org"
 #base paths
 $basepath = "c:\shutdown"
 $logpath = "$basepath\logs"
-$username = "whickhamschool\[dadmin account]"
+#replace anyhting in [] with your information.
+$username = "domain\[dadmin account]"
+#replace anyhting in [] with your information.
 $password = convertto-securestring "[password]" -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
 
