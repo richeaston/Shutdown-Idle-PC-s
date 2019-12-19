@@ -11,9 +11,9 @@ $ousearchbase = "OU=[yourPC'sOU],DC=[domain],DC=org"
 #base paths
 $basepath = "c:\shutdown"
 $logpath = "$basepath\logs"
-#replace anyhting in [] with your information.
+#replace anything in [] with your information.
 $username = "domain\[dadmin account]"
-#replace anyhting in [] with your information.
+#replace anything in [] with your information.
 $password = convertto-securestring "[password]" -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
 
