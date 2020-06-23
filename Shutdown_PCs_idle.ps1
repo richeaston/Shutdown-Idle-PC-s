@@ -38,20 +38,20 @@ Remove-Item($File)
 }
 
 #generate the list of PC from the AD.
-$list = Get-ADComputer -Filter * -SearchBase $ousearchbase -properties Name | select name | sort name | Out-File -FilePath $file -NoClobber
+Get-ADComputer -Filter * -SearchBase $ousearchbase -properties Name | Select-Object name | Sort-Object name | Out-File -FilePath $file -NoClobber
 
 #Remove any blank lines from the file.
-(gc $file) | ? {$_.trim() -ne "" } | set-content $file
+(Get-Content $file) | Where-Object {$_.trim() -ne "" } | set-content $file
 $content = Get-Content($file)
 
 #get start time.
-$st = get-date -DisplayHint Time
+get-date -DisplayHint Time
 $start = "$ft Shutdown Task Started"
 
 out-file -FilePath $log -append -Encoding string -InputObject $start -NoClobber
 
 #read through the list for each pc name and run the stop-computer cmdlet (will shutdown any computer that doesn't have anyone logged in.
-foreach ($name in $content -ne $null) {
+foreach ($name in $null -ne $content) {
 if ($name.Trim() -eq "name") {
 } elseif ($name.Trim() -eq "----" ) {
 } Else {
